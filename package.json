@@ -1,0 +1,22 @@
+{
+  "name": "i18n-cli",
+  "version": "1.0.0",
+  "description": "i18n command line interface for i18n.dev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoangtranson/i18n-cli.git"
+  },
+  "keywords": [
+    "i18n.dev"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoangtranson/i18n-cli/issues"
+  },
+  "homepage": "https://github.com/hoangtranson/i18n-cli#readme"
+}
