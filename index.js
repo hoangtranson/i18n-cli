@@ -12,8 +12,8 @@ program
   .command("download")
   .alias("d")
   .option("-f, --format <format_type>", "format type: JSON")
-  .option("-p, --project <project_name>", "project name that you want to download")
-  .option("--profile <profile_name>", "profile name that you want to download")
+  .option("-pr, --project <project_name>", "project name that you want to download")
+  .option("-pf, --profile <profile_name>", "profile name that you want to download")
   .description("Download JSON file")
   .action(async function () {
     console.log('test');
