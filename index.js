@@ -12,11 +12,14 @@ program
   .command("download")
   .alias("d")
   .option("-f, --format <format_type>", "format type: JSON")
-  .option("-pr, --project <project_name>", "project name that you want to download")
-  .option("-pf, --profile <profile_name>", "profile name that you want to download")
+  .option("-p, --profile <profile_name>", "profile name that you want to download")
   .description("Download JSON file")
   .action(async function () {
-    console.log('test');
+    
+    const _format = this.format ? this.format : "JSON";
+    const _profile = this.profile ? this.profile : "ALL";
+    console.log('_format => ', _format);
+    console.log('_profile => ', _profile);
   });
 
 program.parse(process.argv);
