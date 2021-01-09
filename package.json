@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/hoangtranson/i18n-cli/issues"
   },
-  "homepage": "https://github.com/hoangtranson/i18n-cli#readme"
+  "homepage": "https://github.com/hoangtranson/i18n-cli#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^6.2.1",
+    "inquirer": "^7.3.3"
+  }
 }
