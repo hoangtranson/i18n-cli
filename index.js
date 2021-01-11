@@ -2,9 +2,17 @@
 
 const { Command } = require("commander");
 const { prompt, ui } = require("inquirer");
-const chalk = require("chalk");
+const axios = require('axios');
 const packageJSON = require("./package.json");
 const { rcFile } = require("rc-config-loader");
+
+const API_URL = "api.i18n.dev";
+
+const profileQuestion = {
+  type: "input",
+  name: "profile",
+  message: "What profile that you want to download (default All)? "
+};
 
 const program = new Command();
 program
@@ -32,9 +40,15 @@ program
         return arr;
       }, {});
     
-    console.log("_format => ", _format);
-    console.log("_profile => ", _profile);
-    console.log("_config => ", _config);
+    // const { profile } = await prompt(profileQuestion);
+    let _request_url = `${API_URL}/profile?token=${_config.token}`;
+
+    if(_profile != 'ALL') {
+      _request_url += `$lang=${_profile}`;
+    }
+
+    const res = await axios.get(_request_url);
+    console.log(res);
   });
 
 function loadRcFile(rcFileName) {

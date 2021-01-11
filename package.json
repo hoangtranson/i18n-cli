@@ -1,5 +1,5 @@
 {
-  "name": "i18ndev-cli",
+  "name": "@i18ndev/cli",
   "version": "1.0.0",
   "description": "i18n command line interface for i18n.dev",
   "main": "index.js",
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/hoangtranson/i18n-cli#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "commander": "^6.2.1",
     "inquirer": "^7.3.3",
