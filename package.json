@@ -29,6 +29,7 @@
     "chalk": "^4.1.0",
     "commander": "^6.2.1",
     "inquirer": "^7.3.3",
+    "jsonfile": "^6.1.0",
     "ora": "^5.2.0",
     "rc-config-loader": "^3.0.0"
   }
