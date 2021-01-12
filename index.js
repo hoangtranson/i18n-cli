@@ -6,7 +6,7 @@ const axios = require('axios');
 const packageJSON = require("./package.json");
 const { rcFile } = require("rc-config-loader");
 
-const API_URL = "api.i18n.dev";
+const API_URL = "https://api.i18n.dev";
 
 const profileQuestion = {
   type: "input",
@@ -48,7 +48,7 @@ program
     }
 
     const res = await axios.get(_request_url);
-    console.log(res);
+    console.log(res.data);
   });
 
 function loadRcFile(rcFileName) {
