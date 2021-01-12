@@ -43,7 +43,7 @@ program
     }
 
     const spinner = ora({
-      text: `${chalk.cyan('Loading data...')}`
+      text: `${chalk.cyan('Loading data...')} \n`
     })
     spinner.start();
     const res = await axios.get(_request_url);
