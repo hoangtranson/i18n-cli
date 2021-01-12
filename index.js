@@ -20,17 +20,18 @@ program
   .command("download")
   .alias("d")
   .option("-f, --format <format_type>", "format type: JSON")
-  .option("--path <path>", "path that you want to put json file.")
+  .option("-u, --url <url>", "path that you want to put json file.")
   .option(
     "-p, --profile <profile_name>",
     "profile name that you want to download"
   )
   .description("Download JSON file")
   .action(async function () {
-    const _format = this.format ? this.format : "JSON";
+    const _format = this.format ? this.format : "json";
     const _profile = this.profile ? this.profile : "ALL";
-    const _path = this.path ? this.path : "";
-    console.log('_path => ', _path);
+    const _path = this.url ? this.url : "";
+    const _real_path = process.cwd();
+    
     const _rc = loadRcFile("i18n");
     const _config = _rc
       .split(" ")
@@ -48,7 +49,7 @@ program
     }
 
     if (_profile != "ALL") {
-      _request_url += `$lang=${_profile}`;
+      _request_url += `&lang=${_profile}`;
     }
 
     const spinner = ora({
@@ -59,16 +60,23 @@ program
     spinner.succeed();
 
     //  write json file
-    res.data.forEach( profile => {
-      const file = `${__dirname}${_path}/${profile.name}.json`;
-      console.log('file => ', file);
-      const _json = convertJsonI18n(profile.i18n);
+    if (_profile != "ALL") {
+      const file = `${_real_path}${_path}/${res.data.name}.json`;
+      const _json = convertJsonI18n(res.data.i18n);
       
       jsonfile.writeFile(file, _json,{ spaces: 2 }, function (err) {
         if (err) console.error(err)
       });
-    });
-    
+    }else {
+      res.data.forEach( profile => {
+        const file = `${_real_path}${_path}/${profile.name}.json`;
+        const _json = convertJsonI18n(profile.i18n);
+        
+        jsonfile.writeFile(file, _json,{ spaces: 2 }, function (err) {
+          if (err) console.error(err)
+        });
+      });
+    }
   });
 
 function loadRcFile(rcFileName) {
