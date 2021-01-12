@@ -1,11 +1,11 @@
 {
-  "name": "@i18ndev/cli",
+  "name": "i18ndev-cli",
   "version": "1.0.0",
   "description": "i18n command line interface for i18n.dev",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node index.js d -p en"
+    "dev": "node index.js d -u /test"
   },
   "preferGlobal": true,
   "bin": {
