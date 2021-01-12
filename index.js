@@ -2,19 +2,15 @@
 
 const { Command } = require("commander");
 const { prompt, ui } = require("inquirer");
-const axios = require('axios');
+const axios = require("axios");
 const packageJSON = require("./package.json");
 const { rcFile } = require("rc-config-loader");
+const ora = require("ora");
+const chalk = require("chalk");
 
 const API_URL = "https://api.i18n.dev";
-
-const profileQuestion = {
-  type: "input",
-  name: "profile",
-  message: "What profile that you want to download (default All)? "
-};
-
 const program = new Command();
+
 program
   .version(packageJSON.version)
   .description("i18n.dev command line interface.");
@@ -39,15 +35,19 @@ program
         arr[item[0].toLowerCase()] = item[1];
         return arr;
       }, {});
-    
-    // const { profile } = await prompt(profileQuestion);
+
     let _request_url = `${API_URL}/profile?token=${_config.token}`;
 
-    if(_profile != 'ALL') {
+    if (_profile != "ALL") {
       _request_url += `$lang=${_profile}`;
     }
 
+    const spinner = ora({
+      text: `${chalk.cyan('Loading data...')}`
+    })
+    spinner.start();
     const res = await axios.get(_request_url);
+    spinner.succeed();
     console.log(res.data);
   });
 
