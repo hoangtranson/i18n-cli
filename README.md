@@ -14,7 +14,7 @@ Local installation:
 
 ## Usage
 
-1. Create project at https://i18n.dev
+1. Create project at https://www.i18n.dev
 2. Generate token at project setting
 3. Create `.i18nrc` in your project with content below:
 
@@ -35,7 +35,7 @@ Local installation:
 2. Help
     `i18n -h` or `i18n --help`
 
-3. Download profile from https://i18n.dev
+3. Download profile from https://www.i18n.dev
 
     `i18n d` or `i18n download`
 
