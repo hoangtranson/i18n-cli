@@ -1,6 +1,8 @@
 # i18n-cli
 
-I18n-cli is command line interface for i18n.dev.
+I18n-cli is command line interface for https://www.i18n.dev.
+
+I18n.dev is a I18n management application that allow user to manage text, words, and sentence in software development for multiple languages.
 
 ## Installation
 
@@ -49,3 +51,6 @@ Local installation:
         ```
         i18n d -p en -u /assets
         ```
+
+4. Init I18n.dev (In-progress...)
+5. Login I18n.dev (In-progress...)

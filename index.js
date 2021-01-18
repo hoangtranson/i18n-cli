@@ -87,6 +87,22 @@ program
     }
   });
 
+program
+  .command("init")
+  .description("Init I18n in your project")
+  .action(async function () {
+    console.log("Init I18n in your project");
+    // create .i18nrc file with content token=xxx
+  });
+
+program
+  .command("login")
+  .description("Login to I18n.dev")
+  .action(async function () {
+    console.log("Login to I18n.dev");
+    // login to I18n.dev to view project + profile on terminal
+  });
+
 function loadRcFile(rcFileName) {
   try {
     const results = rcFile(rcFileName, {
