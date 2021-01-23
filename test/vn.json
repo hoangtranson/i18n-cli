@@ -1,1 +1,7 @@
-{}
+{
+  "HOME": {
+    "Test": "This is hoang test",
+    "test_2": "test 2"
+  },
+  "test_1": "test 1"
+}

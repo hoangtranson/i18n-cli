@@ -51,9 +51,19 @@ program
     let _request_url = `${API_URL}/profile?token=${_config.token}`;
 
     const convertJsonI18n = (arr) => {
-      let object = (obj, item) =>
-        Object.assign(obj, { [item.key]: item.value });
-      return arr.reduce(object, {});
+      return arr.reduce(function (acc, item) {
+        let key = item['prefix'];
+        if(key) {
+          if (!acc[key]) {
+            acc[key] = {};
+          }
+          acc[key][item.key] = item.value;
+        } else {
+          acc[item.key] = item.value;
+        }
+       
+        return acc;
+      }, {});
     };
 
     if (_profile != "ALL") {
